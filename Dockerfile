@@ -9,6 +9,7 @@ RUN npm run build
 
 # Stage 2: Serve with nginx
 FROM nginx:alpine
+LABEL org.opencontainers.image.source=https://github.com/kubendoscope/frontend
 
 # Copy built files to nginx's public dir
 COPY --from=builder /app/dist /usr/share/nginx/html
